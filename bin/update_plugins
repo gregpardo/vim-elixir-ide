@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import zipfile
 import shutil
@@ -7,8 +7,7 @@ import requests
 
 from os import path
 
-
-#--- Globals ----------------------------------------------
+# --- Globals ----------------------------------------------
 PLUGINS = """
 bclose.vim https://github.com/rbgrouleff/bclose.vim
 ack.vim https://github.com/mileszs/ack.vim
@@ -22,7 +21,8 @@ vim-gitgutter https://github.com/airblade/vim-gitgutter
 syntastic https://github.com/scrooloose/syntastic
 neocomplete.vim https://github.com/Shougo/neocomplete.vim
 neosnippet.vim https://github.com/Shougo/neosnippet.vim
-vim-go https://github.com/fatih/vim-go
+vim-elixir https://github.com/elixir-lang/vim-elixir
+vim-mix https://github.com/mattreduce/vim-mix
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'
@@ -41,7 +41,8 @@ def download_extract_replace(plugin_name, zip_path, temp_dir, source_dir):
     zip_f.extractall(temp_dir)
 
     plugin_temp_path = path.join(temp_dir,
-                                 path.join(temp_dir, '%s-master' % plugin_name))
+                                 path.join(temp_dir,
+                                           '%s-master' % plugin_name))
 
     # Remove the current plugin and replace it with the extracted
     plugin_dest_path = path.join(source_dir, plugin_name)

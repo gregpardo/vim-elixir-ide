@@ -1,0 +1,9 @@
+mix	mix.txt	/*mix*
+mix-:Mclean	mix.txt	/*mix-:Mclean*
+mix-:Mcompile	mix.txt	/*mix-:Mcompile*
+mix-:Mdeps	mix.txt	/*mix-:Mdeps*
+mix-:Mix	mix.txt	/*mix-:Mix*
+mix-:Mtest	mix.txt	/*mix-:Mtest*
+mix-about	mix.txt	/*mix-about*
+mix-commands	mix.txt	/*mix-commands*
+mix.txt	mix.txt	/*mix.txt*

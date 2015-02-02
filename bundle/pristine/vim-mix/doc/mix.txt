@@ -1,0 +1,35 @@
+*mix.txt*   Plugin for using Elixir's build tool, mix.
+
+Author: Matthew Conway <http://www.mattonrails.com/>
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *mix*
+
+This plugin wraps access to Elixir's leiningen-inspired build tool, mix.
+
+COMMANDS                                        *mix-commands*
+
+                                                *mix-:Mix*
+:Mix [command]         Runs the default mix task. This is the run task,
+                       unless the user has configured the project to use
+                       another task by default.
+
+                                                *mix-:Mclean*
+:Mclean                Cleans generated application files.
+
+                                                *mix-:Mcompile*
+:Mcompile              Compiles source files.
+
+                                                *mix-:Mdeps*
+:Mdeps [subcommand]    Lists all dependencies and their status.
+
+                                                *mix-:Mtest*
+:Mtest                 Runs the tests for a project.
+
+ABOUT                                           *mix-about*
+
+Obtain the latest mix.vim or report a bug on GitHub:
+
+https://github.com/mattonrails/vim-mix
+
+vim:tw=78:et:ft=help:norl:

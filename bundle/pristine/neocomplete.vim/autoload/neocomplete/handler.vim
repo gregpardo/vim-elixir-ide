@@ -171,17 +171,21 @@ function! neocomplete#handler#_on_text_changed() "{{{
     call s:make_cache_current_line()
   endif
 
-  let cur_text = matchstr(getline('.'), '^.*\%'.col('.').'c')
   " indent line matched by indentkeys
-  for word in filter(map(split(&l:indentkeys, ','),
+  let neocomplete = neocomplete#get_current_neocomplete()
+  let cur_text = matchstr(getline('.'), '^.*\%'.col('.').'c')
+  if neocomplete.indent_text != matchstr(getline('.'), '\S.*$')
+    for word in filter(map(split(&l:indentkeys, ','),
         \ "v:val =~ '^<.*>$' ? matchstr(v:val, '^<\\zs.*\\ze>$')
         \                  : matchstr(v:val, '.*=\\zs.*')"),
         \ "v:val != ''")
-    if stridx(cur_text, word, len(cur_text)-len(word)-1) >= 0
-      call neocomplete#helper#indent_current_line()
-      break
-    endif
-  endfor
+      if stridx(cur_text, word, len(cur_text)-len(word)-1) >= 0
+        call neocomplete#helper#indent_current_line()
+        let neocomplete.indent_text = matchstr(getline('.'), '\S.*$')
+        break
+      endif
+    endfor
+  endif
 endfunction"}}}
 
 function! neocomplete#handler#_do_auto_complete(event) "{{{
@@ -204,9 +208,17 @@ function! neocomplete#handler#_do_auto_complete(event) "{{{
       return
     endif
 
-    if neocomplete#helper#is_omni(cur_text)
-          \ && neocomplete.old_cur_text !=# cur_text
-      call s:complete_key("\<Plug>(neocomplete_start_omni_complete)")
+    let complete_pos = neocomplete#helper#get_force_omni_complete_pos(cur_text)
+    if complete_pos >= 0
+      if neocomplete.skip_next_complete
+            \ && complete_pos == neocomplete.old_complete_pos
+            \ && stridx(cur_text, neocomplete.old_cur_text) == 0
+        " Same position.
+      else
+        let neocomplete.old_complete_pos = complete_pos
+        call s:complete_key("\<Plug>(neocomplete_start_omni_complete)")
+      endif
+
       return
     endif
 
@@ -362,6 +374,7 @@ endfunction"}}}
 function! s:complete_key(key) "{{{
   set completeopt-=longest
   call neocomplete#helper#complete_configure()
+
   call feedkeys(a:key)
 endfunction"}}}
 

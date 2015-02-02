@@ -36,6 +36,14 @@ function! neocomplete#mappings#define_default_mappings() "{{{
   inoremap <silent> <Plug>(neocomplete_start_auto_complete)
         \ <C-r>=neocomplete#mappings#auto_complete()<CR><C-r>=
         \neocomplete#mappings#popup_post()<CR>
+
+  " To prevent Vim's complete() bug.
+  if !hasmapto('<C-h>', 'i')
+    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  endif
+  if !hasmapto('<BS>', 'i')
+    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  endif
 endfunction"}}}
 
 function! neocomplete#mappings#auto_complete() "{{{
@@ -198,7 +206,8 @@ function! neocomplete#mappings#start_manual_complete(...) "{{{
     return ''
   endif
 
-  if neocomplete#helper#is_omni(neocomplete#get_cur_text(1))
+  if neocomplete#helper#get_force_omni_complete_pos(
+        \ neocomplete#get_cur_text(1)) >= 0
     return "\<C-x>\<C-o>"
   endif
 

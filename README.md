@@ -1,29 +1,44 @@
-# vim-go-ide
-Get started with Go development in minutes!
+# vim-elixir-ide
+Get started with Elixir development in minutes!
+
+This repository is a modified version of [farazdagi's original vim-go-ide](https://github.com/farazdagi/vim-go-ide)
+
+I simply modified some things for elixir development.
 
 ### 1. Install runtime:
 
-    git clone git@github.com:farazdagi/vim-go-ide.git ~/.vim_go_runtime
-    sh ~/.vim_go_runtime/install
+    git clone git@github.com:gregpardo/vim-elixir-ide.git ~/.vim_elixir_runtime
+    sh ~/.vim_elixir_runtime/install
 
 **NOTE:** You system's Vim configuration will NOT be changed i.e. it is safe to install.
 
 ### 2. Run your newly installed Vim configuration:
 
-Remember that your system's Vim config files remain untouched? During installation `.vimrc.go` is created. Let's use it:
+Remember that your system's Vim config files remain untouched? During installation `.vimrc.elixir` is created. Let's use it:
 
-    vim -u ~/.vimrc.go
+    vim -u ~/.vimrc.elixir
 
 And btw, nothing prevents you from creation of a handy alias in your `.zshrc`:
 
-    alias vimgo='vim -u ~/.vimrc.go'
+    alias vimelixir='vim -u ~/.vimrc.elixir'
 
-### 3. Setup necessary go tools (godep, gocode, godoc etc):
+### 3. Mix tasks:
 
-In order for the [amazing vim-go](https://github.com/fatih/vim-go) to be most useful, run `:GoInstallBinaries` from w/i the Vim.
+Included in the vim plugins is [vim-mix](https://github.com/mattreduce/vim-mix). Commands are mapped as follows. The default leader key is ','.
+
+	,md - Mix command (runs default mix command)
+	,mc - Clean
+	,mm - Compile
+	,md - Mix list dependencies
+	,mdc - Mix dependency clean
+	,mdm - Mix dependency compile
+	,mdg - Mix dependency get
+	,mdu - Mix dependency update
+	,mt - Mix test
+
 
 ### 4. End-result:
 
-![Screenshot](https://raw.githubusercontent.com/farazdagi/vim-go-ide/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/gregpardo/vim-elixir-ide/master/screenshot.png)
 
 Yep, that's it!

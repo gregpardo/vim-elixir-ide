@@ -1,14 +1,14 @@
-cd ~/.vim_go_runtime
+cd ~/.vim_elixir_runtime
 
-echo 'set runtimepath^=~/.vim_go_runtime
-source ~/.vim_go_runtime/vimrc/basic.vim
-source ~/.vim_go_runtime/vimrc/filetypes.vim
-source ~/.vim_go_runtime/vimrc/plugins.vim
-source ~/.vim_go_runtime/vimrc/extended.vim
+echo 'set runtimepath^=~/.vim_elixir_runtime
+source ~/.vim_elixir_runtime/vimrc/basic.vim
+source ~/.vim_elixir_runtime/vimrc/filetypes.vim
+source ~/.vim_elixir_runtime/vimrc/plugins.vim
+source ~/.vim_elixir_runtime/vimrc/extended.vim
 try
-source ~/.vim_go_runtime/custom_config.vim
+source ~/.vim_elixir_runtime/custom_config.vim
 catch
-endtry' > ~/.vimrc.go
+endtry' > ~/.vimrc.elixir
 
-echo "Installed w/o any issues! Start producing you Go magic now :-)"
-echo "Hint: vim -u ~/.vimrc.go"
+echo "Installed w/o any issues! Start producing your Elixir magic now :-)"
+echo "Hint: vim -u ~/.vimrc.elixir"

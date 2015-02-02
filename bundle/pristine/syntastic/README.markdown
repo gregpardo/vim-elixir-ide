@@ -59,10 +59,10 @@ Haxe, Handlebars, HSS, HTML, Java, JavaScript, JSON, JSX, LESS, Lex, Limbo,
 LISP, LLVM intermediate language, Lua, Markdown, MATLAB, NASM, Objective-C,
 Objective-C++, OCaml, Perl, Perl POD, PHP, gettext Portable Object, OS X and
 iOS property lists, Puppet, Python, R, Racket, Relax NG, reStructuredText, RPM
-spec, Ruby, SASS/SCSS, Scala, Slim, Tcl, TeX, Texinfo, Twig, TypeScript, Vala,
-Verilog, VHDL, VimL, xHtml, XML, XSLT, YACC, YAML, z80, Zope page templates,
-and zsh.  See the [wiki][3] for details about the corresponding supported
-checkers.
+spec, Ruby, SASS/SCSS, Scala, Slim, Swift, Tcl, TeX, Texinfo, Twig, TypeScript,
+Vala, Verilog, VHDL, VimL, xHtml, XML, XSLT, YACC, YAML, z80, Zope page
+templates, and zsh.  See the [wiki][3] for details about the corresponding
+supported checkers.
 
 Below is a screenshot showing the methods that Syntastic uses to display syntax
 errors.  Note that, in practise, you will only have a subset of these methods
@@ -358,7 +358,7 @@ __4.11. Q. How can I jump between the different errors without using the locatio
 list at the bottom of the window?__
 
 A. Vim provides several built-in commands for this. See `:help :lnext` and
-`:help :lprev`.
+`:help :lprevious`.
 
 If you use these commands a lot then you may want to add shortcut mappings to
 your `vimrc`, or install something like [unimpaired][2], which provides such
