@@ -1,6 +1,24 @@
 cd ~/.vim_elixir_runtime
 
-echo 'set runtimepath^=~/.vim_elixir_runtime
+# Fetch colors if not there yet
+if [ ! -d "./colors/vim-colorschemes" ]; then
+  echo 'Installing colors for first time'
+  python ./bin/update_colors
+fi
+
+# Set default theme if theme not selected 
+THEME="$1"
+if [ -z "$1" ]; then
+  THEME="foursee"
+fi
+
+if [ ! -f ~/.vim_elixir_runtime/colors/vim-colorschemes/colors/$THEME.vim ]; then
+  echo "Theme file $THEME not found."
+  echo "Installation failed"
+  exit 0
+fi
+
+echo "set runtimepath^=~/.vim_elixir_runtime
 source ~/.vim_elixir_runtime/vimrc/basic.vim
 source ~/.vim_elixir_runtime/vimrc/filetypes.vim
 source ~/.vim_elixir_runtime/vimrc/plugins.vim
@@ -8,7 +26,15 @@ source ~/.vim_elixir_runtime/vimrc/extended.vim
 try
 source ~/.vim_elixir_runtime/custom_config.vim
 catch
-endtry' > ~/.vimrc.elixir
+endtry
+try
+source '~/.vim_elixir_runtime/colors/vim-colorschemes/colors/$THEME.vim'
+catch
+endtry
+try
+colorscheme $THEME
+catch
+endtry" > ~/.vimrc.elixir
 
 echo "Installed w/o any issues! Start producing your Elixir magic now :-)"
 echo "Hint: vim -u ~/.vimrc.elixir"

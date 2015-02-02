@@ -1,0 +1,10 @@
+cd ~/.vim_elixir_runtime
+rm -rf ./bundle/active_color/*
+FILE="./colors/vim-colorschemes/colors/$1"
+
+if [ -e "$FILE" ]; then
+    cp $FILE ./bundle/active_color/$1
+else
+    echo "Theme $1 not found."
+    echo "$FILE"
+fi
