@@ -36,8 +36,14 @@ Included in the vim plugins is [vim-mix](https://github.com/mattreduce/vim-mix).
 	,mdu - Mix dependency update
 	,mt - Mix test
 
+### 4. Color scheme support 
+You can use any supported colorscheme from this [list](https://github.com/flazz/vim-colorschemes/tree/master/colors)
 
-### 4. End-result:
+The default is molokai with dark background. To use a color scheme pass the scheme to the install command.
+
+    ~/.vim_elixir_runtime/bin/install railscasts dark
+
+### 5. End-result:
 
 ![Screenshot](https://raw.githubusercontent.com/gregpardo/vim-elixir-ide/master/screenshot.png)
 
