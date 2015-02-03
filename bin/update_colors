@@ -14,7 +14,7 @@ vim-colorschemes https://github.com/flazz/vim-colorschemes
 
 GITHUB_ZIP = '%s/archive/master.zip'
 
-SOURCE_DIR = path.join(path.dirname(__file__), '../colors')
+SOURCE_DIR = path.join(path.dirname(__file__), '../bundle/pristine')
 
 
 def download_extract_replace(plugin_name, zip_path, temp_dir, source_dir):
