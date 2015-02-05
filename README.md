@@ -8,7 +8,7 @@ I simply modified some things for elixir development.
 ### 1. Install runtime:
 
     git clone git@github.com:gregpardo/vim-elixir-ide.git ~/.vim_elixir_runtime
-    sh ~/.vim_elixir_runtime/install
+    sh ~/.vim_elixir_runtime/bin/install
 
 **NOTE:** You system's Vim configuration will NOT be changed i.e. it is safe to install.
 
